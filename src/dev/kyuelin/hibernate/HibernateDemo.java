@@ -1,5 +1,8 @@
 package dev.kyuelin.hibernate;
 
+import dev.kyuelin.hibernate.utils.HibernateUtil;
+import dev.kyuelin.hibernate.model.Family;
+import dev.kyuelin.hibernate.model.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,7 +15,6 @@ import java.util.List;
  * Created by linken on 5/16/15.
  */
 public class HibernateDemo {
-    private static SessionFactory factory;
 
     private static Family createFamily() {
         Family family = new Family();
@@ -26,7 +28,7 @@ public class HibernateDemo {
     }
 
     public static void main(String[] args) {
-        factory = HibernateUtil.buildSessionFactory();
+        SessionFactory factory = HibernateUtil.buildSessionFactory();
         Session session = factory.openSession();
         Transaction txn = null;
         try {

@@ -1,4 +1,4 @@
-package dev.kyuelin.hibernate;
+package dev.kyuelin.hibernate.model;
 
 import org.hibernate.annotations.GenericGenerator;
 

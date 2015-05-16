@@ -1,6 +1,5 @@
-package dev.kyuelin.hibernate;
+package dev.kyuelin.hibernate.utils;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;

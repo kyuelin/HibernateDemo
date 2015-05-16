@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - tutorials@localhost" uuid="08fe0cdc-b00c-413b-9248-fcc7ec3b4557">
+    <database-info product="MySQL" version="5.6.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="tutorials"/>
+    <table name="family" schema="" catalog="tutorials" type="TABLE">
+      <column name="FAMILY_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="FAMILY_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="FAMILY_ID"/>
+      <exported-key name="FK_3lqd8jbx46g99yjw7wf09c68y" table="users" schema="" catalog="tutorials" columns="FAMILY_ID"/>
+    </table>
+    <table name="users" schema="" catalog="tutorials" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="USER_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FAMILY_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_3lqd8jbx46g99yjw7wf09c68y" columns="FAMILY_ID" ref-table="family" ref-schema="" ref-catalog="tutorials" ref-columns="FAMILY_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_3lqd8jbx46g99yjw7wf09c68y" unique="false" columns="FAMILY_ID"/>
+    </table>
+  </data-source>
+</component>

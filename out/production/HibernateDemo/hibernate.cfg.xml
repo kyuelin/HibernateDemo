@@ -20,8 +20,8 @@
         <!-- DB schema will be updated if needed -->
         <property name="hibernate.hdm2ddl.auto">update</property>
 
-        <mapping class="dev.kyuelin.hibernate.Family"/>
-        <mapping class="dev.kyuelin.hibernate.User"/>
+        <mapping class="dev.kyuelin.hibernate.model.Family"/>
+        <mapping class="dev.kyuelin.hibernate.model.User"/>
 
     </session-factory>
 </hibernate-configuration>
