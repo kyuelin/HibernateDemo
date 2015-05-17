@@ -9,8 +9,8 @@ git branch local
 git checkout local
 git merge master
 
-git branch -d
-git pull origin master
-git branch -b local master
-git merge master local
+# edited
+git push origin local
+# create pull reqeust to merge local into master
+# commit merged codes from remote local to remote mater
 
