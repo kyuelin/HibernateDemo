@@ -3,7 +3,13 @@
 create database;
 create user;
 3. git best practice
-git branch -d 
+git checkout master
+git pull origin master
+git branch local
+git checkout local
+git merge master
+
+git branch -d
 git pull origin master
 git branch -b local master
 git merge master local
