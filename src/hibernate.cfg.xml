@@ -22,6 +22,14 @@
 
         <mapping class="dev.kyuelin.hibernate.model.Family"/>
         <mapping class="dev.kyuelin.hibernate.model.User"/>
+        <mapping class="dev.kyuelin.hibernate.model.Course"/>
+        <mapping class="dev.kyuelin.hibernate.model.CoursePK"/>
+        <mapping class="dev.kyuelin.hibernate.model.Trade"/>
+        <mapping class="dev.kyuelin.hibernate.model.Showroom"/>
+        <mapping class="dev.kyuelin.hibernate.model.Car"/>
+        <mapping class="dev.kyuelin.hibernate.model.Employee"/>
+        <mapping class="dev.kyuelin.hibernate.model.Movie"/>
+        <mapping class="dev.kyuelin.hibernate.model.Actor"/>
 
     </session-factory>
 </hibernate-configuration>
