@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * Created by linken on 5/7/15.
  */
-@Table(name = "users")
+@Table(name = "USER")
 @Entity
 public class User {
     @Column(name = "USER_NAME")

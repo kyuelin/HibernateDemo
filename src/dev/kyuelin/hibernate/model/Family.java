@@ -10,7 +10,7 @@ import java.util.List;
  * Created by linken on 5/7/15.
  */
 @Entity
-@Table(name = "family")
+@Table(name = "FAMILY")
 public class Family {
     @Id
     @Column(name = "FAMILY_ID")

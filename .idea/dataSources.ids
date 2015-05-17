@@ -7,19 +7,69 @@
     </database-info>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
     <schema name="" catalog="tutorials"/>
-    <table name="family" schema="" catalog="tutorials" type="TABLE">
+    <table name="ACTOR" schema="" catalog="tutorials" type="TABLE">
+      <column name="ACTOR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="firstname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lastname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="shortname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MOVIE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ACTOR_ID"/>
+      <foreign-key name="FK_cxsd4880vx0umu37pcn8clxul" columns="MOVIE_ID" ref-table="MOVIE" ref-schema="" ref-catalog="tutorials" ref-columns="MOVIE_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_cxsd4880vx0umu37pcn8clxul" unique="false" columns="MOVIE_ID"/>
+    </table>
+    <table name="CAR" schema="" catalog="tutorials" type="TABLE">
+      <column name="CAR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="make" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SHOWROOM_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="CAR_ID"/>
+      <foreign-key name="FK_7epwu3hroxqbwvm9m8xg3wxb7" columns="SHOWROOM_ID" ref-table="SHOWROOM" ref-schema="" ref-catalog="tutorials" ref-columns="SHOWROOM_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_7epwu3hroxqbwvm9m8xg3wxb7" unique="false" columns="SHOWROOM_ID"/>
+    </table>
+    <table name="COURSE" schema="" catalog="tutorials" type="TABLE">
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tutor" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="registeredStudents" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="totalStudents" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="title,tutor"/>
+    </table>
+    <table name="EMPLOYEE" schema="" catalog="tutorials" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EMPLOYEE_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+    </table>
+    <table name="FAMILY" schema="" catalog="tutorials" type="TABLE">
       <column name="FAMILY_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="FAMILY_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="FAMILY_ID"/>
-      <exported-key name="FK_3lqd8jbx46g99yjw7wf09c68y" table="users" schema="" catalog="tutorials" columns="FAMILY_ID"/>
+      <exported-key name="FK_ftli1qenoepobbw3aglc4x0ao" table="USER" schema="" catalog="tutorials" columns="FAMILY_ID"/>
     </table>
-    <table name="users" schema="" catalog="tutorials" type="TABLE">
+    <table name="MOVIE" schema="" catalog="tutorials" type="TABLE">
+      <column name="MOVIE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="MOVIE_ID"/>
+      <exported-key name="FK_cxsd4880vx0umu37pcn8clxul" table="ACTOR" schema="" catalog="tutorials" columns="MOVIE_ID"/>
+    </table>
+    <table name="SHOWROOM" schema="" catalog="tutorials" type="TABLE">
+      <column name="SHOWROOM_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="SHOWROOM_LOC" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SHOWROOM_MANAGER" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="SHOWROOM_ID"/>
+      <exported-key name="FK_7epwu3hroxqbwvm9m8xg3wxb7" table="CAR" schema="" catalog="tutorials" columns="SHOWROOM_ID"/>
+    </table>
+    <table name="TRADE" schema="" catalog="tutorials" type="TABLE">
+      <column name="tradeId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="quantity" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="security" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="tradeId"/>
+    </table>
+    <table name="USER" schema="" catalog="tutorials" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="USER_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="FAMILY_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_3lqd8jbx46g99yjw7wf09c68y" columns="FAMILY_ID" ref-table="family" ref-schema="" ref-catalog="tutorials" ref-columns="FAMILY_ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_3lqd8jbx46g99yjw7wf09c68y" unique="false" columns="FAMILY_ID"/>
+      <foreign-key name="FK_ftli1qenoepobbw3aglc4x0ao" columns="FAMILY_ID" ref-table="FAMILY" ref-schema="" ref-catalog="tutorials" ref-columns="FAMILY_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_ftli1qenoepobbw3aglc4x0ao" unique="false" columns="FAMILY_ID"/>
     </table>
   </data-source>
 </component>
