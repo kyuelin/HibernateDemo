@@ -2,3 +2,8 @@
 2. install mysql
 create database;
 create user;
+3. git best practice
+git pull origin master
+git branch -b local master
+git merge master local
+
