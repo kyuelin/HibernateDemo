@@ -9,11 +9,9 @@ git pull origin master
 git branch -b develop
 git checkout develop
 git merge master
-<<<<<<< HEAD
 git push origin develop
 # for new feature use a temporary branch locally
-git branch -b newfeature develop
-git checkout newfeature
+git checkout -b newfeature develop
 # once new feature is implemented and ready for boarding
 git add .
 git commit -a -m "new feature"
