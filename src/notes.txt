@@ -3,14 +3,20 @@
 create database;
 create user;
 3. git best practice
+# create develop branch only once when the repository was created
 git checkout master
 git pull origin master
-git branch local
-git checkout local
+git branch -b develop
+git checkout develop
 git merge master
-
-git branch -d
-git pull origin master
-git branch -b local master
-git merge master local
+git push origin develop
+# for new feature use a temporary branch locally
+git branch -b newfeature develop
+git checkout newfeature
+# once new feature is implemented and ready for boarding
+git add .
+git commit -a -m "new feature"
+git checkout develop
+git merge --no-ff newfeature
+git branch -d newfeature
 
