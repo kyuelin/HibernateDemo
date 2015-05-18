@@ -20,11 +20,4 @@ git commit -a -m "new feature"
 git checkout develop
 git merge --no-ff newfeature
 git branch -d newfeature
-=======
-
-# edited
-git push origin local
-# create pull reqeust to merge local into master
-# commit merged codes from remote local to remote mater
->>>>>>> 8c4ea1a0f93b5414f804434e3515785665e3aa80
 
