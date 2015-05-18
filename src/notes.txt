@@ -9,6 +9,7 @@ git pull origin master
 git branch -b develop
 git checkout develop
 git merge master
+<<<<<<< HEAD
 git push origin develop
 # for new feature use a temporary branch locally
 git branch -b newfeature develop
@@ -19,4 +20,11 @@ git commit -a -m "new feature"
 git checkout develop
 git merge --no-ff newfeature
 git branch -d newfeature
+=======
+
+# edited
+git push origin local
+# create pull reqeust to merge local into master
+# commit merged codes from remote local to remote mater
+>>>>>>> 8c4ea1a0f93b5414f804434e3515785665e3aa80
 
