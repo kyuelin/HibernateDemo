@@ -6,14 +6,22 @@ import javax.persistence.*;
  * Created by kennethlin on 5/16/15.
  */
 @Entity
-@Table(name="EMPLOYEE")
+@Table(name = "EMPLOYEE")
 public class Employee {
     @Id
-    @Column(name="ID")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id=0;
-    @Column(name="EMPLOYEE_NAME")
-    private String name=null;
+    private int id = 0;
+    @Column(name = "EMPLOYEE_NAME")
+    private String name = null;
+
+    public Employee() {
+
+    }
+
+    public Employee(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
