@@ -13,6 +13,18 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="ACTOR_ID")
     private int id = 0;
+
+//    @Override
+//    public String toString() {
+//        return "Actor{" +
+//                "id=" + id +
+//                ", firstname='" + firstname + '\'' +
+//                ", lastname='" + lastname + '\'' +
+//                ", shortname='" + shortname + '\'' +
+//                ", movie=" + movie +
+//                '}';
+//    }
+
     private String firstname = null;
     private String lastname = null;
     private String shortname = null;

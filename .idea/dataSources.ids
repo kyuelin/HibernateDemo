@@ -33,16 +33,26 @@
       <column name="totalStudents" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="title,tutor"/>
     </table>
+    <table name="DEPARTMENT" schema="" catalog="tutorials" type="TABLE">
+      <column name="DEPARTMENT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="DEPARTMENT_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="DEPARTMENT_ID"/>
+      <exported-key name="FK_4f35iggmlprm10my2dm6fgs3v" table="DEPARTMENT_EMPLOYEE_JT" schema="" catalog="tutorials" columns="DEPARTMENT_ID"/>
+    </table>
+    <table name="DEPARTMENT_EMPLOYEE_JT" schema="" catalog="tutorials" type="TABLE">
+      <column name="DEPARTMENT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="employeeList_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="FK_4f35iggmlprm10my2dm6fgs3v" columns="DEPARTMENT_ID" ref-table="DEPARTMENT" ref-schema="" ref-catalog="tutorials" ref-columns="DEPARTMENT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_rnlfs38lqdtxu8w3pbsqsduqd" columns="employeeList_ID" ref-table="EMPLOYEE" ref-schema="" ref-catalog="tutorials" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UK_rnlfs38lqdtxu8w3pbsqsduqd" unique="true" columns="employeeList_ID"/>
+      <index name="FK_4f35iggmlprm10my2dm6fgs3v" unique="false" columns="DEPARTMENT_ID"/>
+      <index name="FK_rnlfs38lqdtxu8w3pbsqsduqd" unique="false" columns="employeeList_ID"/>
+    </table>
     <table name="EMPLOYEE" schema="" catalog="tutorials" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="EMPLOYEE_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="ID"/>
-    </table>
-    <table name="FAMILY" schema="" catalog="tutorials" type="TABLE">
-      <column name="FAMILY_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="FAMILY_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="FAMILY_ID"/>
-      <exported-key name="FK_ftli1qenoepobbw3aglc4x0ao" table="USER" schema="" catalog="tutorials" columns="FAMILY_ID"/>
+      <exported-key name="FK_rnlfs38lqdtxu8w3pbsqsduqd" table="DEPARTMENT_EMPLOYEE_JT" schema="" catalog="tutorials" columns="employeeList_ID"/>
     </table>
     <table name="MOVIE" schema="" catalog="tutorials" type="TABLE">
       <column name="MOVIE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -70,6 +80,21 @@
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="FK_ftli1qenoepobbw3aglc4x0ao" columns="FAMILY_ID" ref-table="FAMILY" ref-schema="" ref-catalog="tutorials" ref-columns="FAMILY_ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="FK_ftli1qenoepobbw3aglc4x0ao" unique="false" columns="FAMILY_ID"/>
+    </table>
+    <table name="family" schema="" catalog="tutorials" type="TABLE">
+      <column name="FAMILY_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="FAMILY_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="FAMILY_ID"/>
+      <exported-key name="FK_ftli1qenoepobbw3aglc4x0ao" table="USER" schema="" catalog="tutorials" columns="FAMILY_ID"/>
+      <exported-key name="FK_3lqd8jbx46g99yjw7wf09c68y" table="users" schema="" catalog="tutorials" columns="FAMILY_ID"/>
+    </table>
+    <table name="users" schema="" catalog="tutorials" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="USER_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FAMILY_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_3lqd8jbx46g99yjw7wf09c68y" columns="FAMILY_ID" ref-table="family" ref-schema="" ref-catalog="tutorials" ref-columns="FAMILY_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_3lqd8jbx46g99yjw7wf09c68y" unique="false" columns="FAMILY_ID"/>
     </table>
   </data-source>
 </component>

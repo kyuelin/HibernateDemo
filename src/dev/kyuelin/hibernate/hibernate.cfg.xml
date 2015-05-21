@@ -28,6 +28,7 @@
         <mapping class="dev.kyuelin.hibernate.model.Showroom"/>
         <mapping class="dev.kyuelin.hibernate.model.Car"/>
         <mapping class="dev.kyuelin.hibernate.model.Employee"/>
+        <mapping class="dev.kyuelin.hibernate.model.Department"/>
         <mapping class="dev.kyuelin.hibernate.model.Movie"/>
         <mapping class="dev.kyuelin.hibernate.model.Actor"/>
 

@@ -18,4 +18,15 @@ git commit -a -m "new feature"
 git checkout develop
 git merge --no-ff newfeature
 git branch -d newfeature
-
+git push origin develop
+4. load data into movie table
+download movie data from imdb
+view encoding in vi
+convert latin character with ascii 
+:1,2300000!iconv -f latin-1- -t urf-8
+truncate it to only one column : title
+cut -d '	' -f 1 movie.list > m.list
+mysql> load data local m.list into table movie (title)
+if see error "ERROR 1467 (HY000): "
+alter table movie auto_increment=1
+reload

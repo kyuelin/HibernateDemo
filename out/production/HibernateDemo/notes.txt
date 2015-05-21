@@ -1,4 +1,0 @@
-1. add org.hibernate.tool.hbm2ddl.SchemaExport to troubleshoot hibernate schema issue;
-2. install mysql
-create database;
-create user;

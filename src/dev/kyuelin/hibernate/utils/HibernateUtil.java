@@ -12,8 +12,8 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 public class HibernateUtil {
 
     public static SessionFactory buildSessionFactory() {
-        Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
-        new SchemaExport(configuration).create(true, true);
+        Configuration configuration = new Configuration().configure("dev/kyuelin/hibernate/hibernate.cfg.xml");
+        //new SchemaExport(configuration).create(true, true);
         ServiceRegistry registry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         return configuration.buildSessionFactory(registry);
     }
