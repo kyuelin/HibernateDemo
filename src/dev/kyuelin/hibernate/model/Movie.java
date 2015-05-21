@@ -1,5 +1,7 @@
 package dev.kyuelin.hibernate.model;
 
+import dev.kyuelin.hibernate.dao.MovieDao;
+import dev.kyuelin.hibernate.dao.impl.MovieDaoImpl;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 
@@ -12,23 +14,34 @@ import java.util.Set;
  * Created by kennethlin on 5/16/15.
  */
 @Entity
-@Table(name="MOVIE")
+@Table(name = "MOVIE")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="MOVIE_ID")
-    private int id = 0;
+    @Column(name = "MOVIE_ID")
+    private long id = 0;
 
     private String title = null;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
     @Cascade(CascadeType.ALL)
     private Set<Actor> actors = null;
 
-    public int getId() {
+    public Movie() {
+    }
+
+    public Movie(Long id) {
+        this.id = id;
+    }
+
+    public Movie(String title) {
+        this.title = title;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,5 +59,20 @@ public class Movie {
 
     public void setActors(Set<Actor> actors) {
         this.actors = actors;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", actors=" + actors +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        MovieDao dao = new MovieDaoImpl();
+        Movie movie = dao.get(23L);
+        System.out.println(movie.toString());
     }
 }
